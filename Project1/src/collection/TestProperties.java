@@ -21,6 +21,7 @@ public class TestProperties {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}  
+			scanner.close();
 			System.out.println(p.getProperty("user"));  
 			System.out.println(p.getProperty("password"));
 		}  
