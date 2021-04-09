@@ -6,6 +6,8 @@ import java.util.function.Predicate;
 public class TestPredicate {
 	
 	static public ArrayList<Employee> employees;
+	
+	static public ArrayList<Student> students;
 	public static void main(String[] args) {
 		Predicate<Integer> p = i -> i % 2 == 0;
 		System.out.println(p.test(10));
@@ -16,6 +18,19 @@ public class TestPredicate {
 		for (Employee e : employees) {
 			if(p1.test(e)) {
 				System.out.println(e.name);
+			}
+		}
+		
+		populateStudents();
+		
+		Predicate<Student> p2 = (s) -> ((s.m1+s.m2+s.m3)>75)? true : false;
+		
+		for (Student s : students) {
+			if(p2.test(s)) {
+				System.out.println(s.name+" pass");
+			}
+			else {
+				System.out.println(s.name+" fail");
 			}
 		}
 	}
@@ -29,4 +44,14 @@ public class TestPredicate {
 		employees.add(new Employee("Vinay", 50000));
 					
 	}
+	
+	private static void populateStudents() {
+		students = new ArrayList<Student>();
+		students.add(new Student("Praveen",35, 35, 35));
+		students.add(new Student("Pavan",45, 15, 10));
+		students.add(new Student("Kiran",35, 25, 35));
+		students.add(new Student("Mohan",45, 25, 35));
+		students.add(new Student("Vinay",45, 35, 35));
+	}
+	
 }
